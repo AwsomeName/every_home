@@ -140,7 +140,7 @@ def hello(request):
  
 深芯智造（北京）科技有限公司
 15063036754
-    """
+    """.replace("\n", "<br>")
     return HttpResponse(ua_str)
 
     

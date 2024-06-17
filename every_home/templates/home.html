@@ -1,0 +1,408 @@
+{% comment %} <h1>{{ hello }}</h1> {% endcomment %}
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>阿尔芮</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  {% load static %}
+  <link rel="shortcut icon" href="{% static 'images/favicon.ico' %}" type="image/x-icon">
+  <link href="https://cdn.staticfile.org/twitter-bootstrap/5.1.1/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://cdn.staticfile.org/twitter-bootstrap/5.1.1/js/bootstrap.bundle.min.js"></script>
+
+  <style>
+  /* 头部标题 */
+  .header {
+    padding: 30px;
+    text-align: center;
+    background: white;
+  }
+   
+  .header h1 {
+    font-size: 50px;
+  }
+  /* 创建两列 */
+  /* Left column */
+  .leftcolumn {   
+    float: left;
+    width: 75%;
+  }
+   
+  /* 右侧栏 */
+  .rightcolumn {
+    float: left;
+    width: 25%;
+    background-color: #f1f1f1;
+    padding-left: 20px;
+  }
+
+  .botcol1 {
+    float: left;
+    width: 30%;
+    padding-left: 2%;
+  }
+  .botcol2 {
+    float: left;
+    width: 12%;
+  }
+  .midcol {
+    float: left;
+    width: 33%;
+    padding:3%;
+  }
+  .midcol2 {
+    float: left;
+    width: 47%;
+    padding:3%;
+  }
+  .subcol1 {
+    float: left;
+    width: 70%;
+    padding-left: 2%;
+  }
+  .subcol2 {
+    float: left;
+    width: 22%;
+  }
+
+  /* 图像部分 */
+  .fakeimg {
+    background-color: #aaa;
+    width: 100%;
+    padding: 20px;
+  }
+   
+  /* 文章卡片效果 */
+  .card {
+    background-color: white;
+    padding: 20px;
+    margin-top: 20px;
+  }
+   
+  /* 列后面清除浮动 */
+  .row:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+   
+  /* 底部 */
+  .footer {
+    padding: 20px;
+    text-align: center;
+    background: #ddd;
+    margin-top: 20px;
+  }
+   
+  /* 响应式布局 - 屏幕尺寸小于 800px 时，两列布局改为上下布局 */
+  @media screen and (max-width: 800px) {
+    .leftcolumn, .rightcolumn {   
+      width: 100%;
+      padding: 0;
+    }
+  }
+   
+  /* 响应式布局 -屏幕尺寸小于 400px 时，导航等布局改为上下布局 */
+  @media screen and (max-width: 400px) {
+    .topnav a {
+      float: none;
+      width: 100%;
+    }
+  }
+  </style>
+  
+
+</head>
+<body>
+
+
+<nav class="navbar navbar-expand-sm bg-light">
+  {% comment %} <div class="container d-flex flex-wrap"> {% endcomment %}
+  <div class="container-fluid d-grid gap-3 align-items-center" style="grid-template-columns: 1fr 4fr 1fr;">
+    <ul class="navbar-nav me-auto">
+
+      <li class="nav-item">
+        <img src="{% static 'images/aerui.jpg' %}"  width="100" height="100" text-align: top>
+      </li>
+    </ul>
+    <ul class="nav me-auto">
+      <li class="nav-item">
+        {% comment %} <input type="text" class="form-control" id="pwd" placeholder="搜索文档、模型或数据集" name="search_text"> {% endcomment %}
+        <form class="w-100 me-3">
+          <input type="search" class="form-control" placeholder="搜索文档、模型或数据集" aria-label="Search">
+        </form>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="../home/">产品介绍</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="../doc/">文档</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="../home/#">模型</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="../home/#">数据集</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="../home/#">解决方案</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">联系方式</a>
+      </li>
+    </ul>
+    <ul class="nav">
+      <li class="nav-item">
+        <div class="container">
+          <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#myModal">
+            注册
+          </button>
+        </div>
+      </li> 
+      <li class="nav-item" float:right>
+        <div class="container">
+          <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#myModal">
+            登陆
+          </button>
+        
+        </div>
+      </li>
+    </ul>
+  </div>
+</nav>
+<br>
+
+
+<!-- 模态框 -->
+<div class="modal" id="myModal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+
+      <!-- 模态框头部 -->
+      <div class="modal-header">
+        <h4 class="modal-title">注册</h4>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+
+      <!-- 模态框内容 -->
+      <div class="modal-body">
+        id，密码
+      </div>
+
+      <!-- 模态框底部 -->
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">关闭</button>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<div class="header">
+  <h1>阿尔芮</h1>
+  <p>AI驱动的AR助手，导航助手</p>
+</div>
+
+<div class="row">
+  {% comment %} <div class="leftcolumn"> {% endcomment %}
+  <div class="col">
+    
+    <div class="card">
+      <h2 class="text-center">功能介绍</h2>
+      <br>
+      <div class="row bg-light text-black">
+        <div class="midcol2">
+          <img src="{% static 'images/complete.svg' %}">
+          <br>
+          <h3>AI导航</h3>
+          <br>
+          <p>可以根据语音自动导航。</p>
+        </div>
+        <div class="midcol2">
+          <video controls width="90%" >
+            <source src="{% static 'images/demo.mp4' %}" type="video/mp4">
+          </video>
+        </div>
+      </div>
+
+      <div class="row bg-light text-black">
+        <div class="midcol2">
+          <img src="{% static 'images/explain.svg' %}">
+          <br>
+          <h3>图文问答</h3>
+          <br>
+          <p>可以拍照后由AI解答。</p>
+        </div>
+        <div class="midcol2">
+          <img src="{% static 'images/AI.png' %}">
+        </div>
+      </div>
+
+      <div class="row bg-light text-black">
+        <div class="midcol2">
+          <img src="{% static 'images/qa.svg' %}">
+          <br>
+          <h3>实时翻译</h3>
+          <br>
+          <p>实时翻译</p>
+        </div>
+        <div class="midcol2">
+          <img src="{% static 'images/AI.png' %}">
+        </div>
+      </div>
+
+      <div class="row bg-light text-black">
+        <div class="midcol2">
+          <img src="{% static 'images/morefunction.svg' %}">
+          <br>
+          <h3>更多功能</h3>
+          <br>
+          <p>通过AI全方位的助手</p>
+        </div>
+        <div class="midcol2">
+          <img src="{% static 'images/AI.png' %}">
+        </div>
+      </div>
+
+    </div>
+
+    {% comment %} --- 常见问题 --- {% endcomment %}
+    <div class="card">
+      <h2 class="text-center">常见问题</h2>
+      <div class="row bg-light text-black">
+        <div class="midcol">
+          <div class="row">
+            <div class="subcol1">
+              <h3>阿尔芮是什么</h3>
+            </div>
+            <div class="subcol2">
+              <button type="button" class="btn btn-primary" data-bs-toggle="collapse" data-bs-target="#qa1">?</button>
+            </div>
+          </div>
+          <br>
+          <div id="qa1" class="collapse">
+            <p>阿尔芮是一个AI驱动的助手，可以通过图像，音频，文本，视频，支持你的工作</p>
+          </div>
+        </div>
+
+        <div class="midcol">
+          <div class="row">
+            <div class="subcol1">
+              <h3>阿尔芮适用于什么场景</h3>
+            </div>
+            <div class="subcol2">
+              <button type="button" class="btn btn-primary" data-bs-toggle="collapse" data-bs-target="#qa2">?</button>
+            </div>
+          </div>
+          <br>
+          <div id="qa2" class="collapse">
+            <p>比如骑行导航等工业场景。</p>
+          </div>
+
+        </div>
+
+        <div class="midcol">
+          <div class="row">
+            <div class="subcol1">
+              <h3>如何收费</h3>
+            </div>
+            <div class="subcol2">
+              <button type="button" class="btn btn-primary" data-bs-toggle="collapse" data-bs-target="#qa3">?</button>
+            </div>
+          </div>
+          <br>
+          <div id="qa3" class="collapse">
+            <p>请看咨询页详情</p>
+          </div>
+
+        </div>
+      </div>
+
+      <div class="row bg-light text-black">
+        <div class="midcol">
+          <div class="row">
+            <div class="subcol1">
+              <h3>阿尔芮其他问题</h3>
+            </div>
+            <div class="subcol2">
+              <button type="button" class="btn btn-primary" data-bs-toggle="collapse" data-bs-target="#qa4">?</button>
+            </div>
+          </div>
+          <br>
+          <div id="qa4" class="collapse">
+            <p>待定</p>
+          </div>
+        </div>
+        
+          <h3></h3>
+          <br>
+          <p></p>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+</div>
+
+<div class="footer_container">
+  <div class="row bg-dark text-white">
+    <div class="botcol1">
+      <div class="col">
+        <br>
+        <img src="{% static 'images/aerui.jpg' %}"  width="300" height="300" text-align: top>
+      </div>
+    </div>
+    
+    <div class="botcol2">
+      <ul class="list-unstyled">
+        <br>
+        <li><a href="#" class="nav-link text-secondary">产品</a></li>
+        <li><br></li>
+        <li><a href="#" class="nav-link text-white">产品下载</a></li>
+        <li><a href="#" class="nav-link text-white">产品文档</a></li>
+      </ul>
+    </div>
+    <div class="botcol2">
+      <ul class="list-unstyled">
+        <br>
+        <li><a href="#" class="nav-link text-secondary">公司</a></li>
+        <li><br></li>
+        <li><a href="#" class="nav-link text-white">关于我们</a></li>
+      </ul>
+    </div>
+    <div class="botcol2">
+      <ul class="list-unstyled">
+        <br>
+        <li><a href="#" class="nav-link text-secondary">媒体</a></li>
+        <li><br></li>
+        <li><a href="#" class="nav-link text-white">知乎</a></li>
+        <li><a href="#" class="nav-link text-white">GitHub</a></li>
+      </ul>
+    </div>
+    <div class="botcol2">
+      <ul class="list-unstyled">
+        <br>
+        <li><a href="#" class="nav-link text-secondary">合作伙伴</a></li>
+        <li><br></li>
+        <li><a href="#" class="nav-link text-white">欢迎加入</a></li>
+        <li></li>
+      </ul>
+    </div>
+    <div class="botcol2">
+      <ul class="list-unstyled">
+        <br>
+        <li><a href="#" class="nav-link text-secondary">商务合作</a></li>
+        <li><br></li>
+        <li><a href="#" class="nav-link text-white">17611180092</li>
+        <li><a href="#" class="nav-link text-white">liuchang_hit_cs@163.com</li>
+        <li><img src="{% static 'images/wexin.jpeg' %}"  width="100" height="100" text-align: top></li>
+      </ul>
+    </div>
+
+  </div>
+</div>
+
+
+</body>
+</html>

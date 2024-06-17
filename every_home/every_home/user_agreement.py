@@ -141,7 +141,7 @@ def hello(request):
 深芯智造（北京）科技有限公司
 15063036754
     """
-    return HttpResponse("Hello world ! ")
+    return HttpResponse(ua_str)
 
     
 # from django.shortcuts import render

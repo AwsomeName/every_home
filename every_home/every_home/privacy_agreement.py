@@ -299,7 +299,7 @@ SDK收集的个人信息类型：收集类别为:个人常用设备信息、网�
 深芯智造（北京）科技有限公司
 信息保护负责人联系电话：15063036754
     """
-    return HttpResponse("Hello world ! ")
+    return HttpResponse(pa_str)
 
     
 # from django.shortcuts import render
